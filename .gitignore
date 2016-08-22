@@ -4,3 +4,6 @@ coursera/machine-learning-coursera/
 
 # TensorFlow
 tensor_flow/log
+
+# Others
+.DS_Store
