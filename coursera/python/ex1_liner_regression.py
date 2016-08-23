@@ -116,7 +116,7 @@ g, cost = gradientDescent(X, y, theta, alpha, iters)
 computeCost(X, y, g)
 #=> 4.5159555030789118
 
-# グラフに表示する
+# 予想関数hθ(x)を表示
 x = np.linspace(data.Population.min(), data.Population.max(), 100)
 fig, ax = plt.subplots(figsize=(12, 8))
 f = g[0, 0] + (g[0, 1] * x)
@@ -128,12 +128,16 @@ ax.set_ylabel('Profit')
 ax.set_title('Predicted Profit vs. Population Size')
 plt.waitforbuttonpress()
 
-# グラフに表示2
-fig, ax = plt.subplots(figsize=(12,8))
-ax.plot(np.arange(iters), cost, 'r')
-ax.set_xlabel('Iterations')
-ax.set_ylabel('Cost')
-ax.set_title('Error vs. Training Epoch')
+# コスト関数の推移を表示（αを変えてみる）
+alphas = [0.01, 0.1, 0.00001]
+for a in alphas:
+    g, cost = gradientDescent(X, y, theta, a, iters)
+    fig, ax = plt.subplots(figsize=(12,8))
+    ax.plot(np.arange(iters), cost, 'r')
+    ax.set_xlabel('Iterations')
+    ax.set_ylabel('Cost')
+    ax.set_title('Error vs. Training Epoch (a = ' + str(a) + ')')
+
 plt.waitforbuttonpress()
 
 
