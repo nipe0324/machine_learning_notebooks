@@ -4,6 +4,12 @@
 データセット：試験A, Bのスコア、入学許可
 
 Source: http://www.johnwittenauer.net/machine-learning-exercises-in-python-part-3/
+
+流れ:
+1. データをファイルから取得
+2. シグモイド関数、コスト関数、Gradient Descentを定義
+3. トレーニングを実施
+4. 結果を評価、プロットする
 """
 
 import os
@@ -103,7 +109,7 @@ cost(result[0], X, y) #=> 0.20349770158947461
 # 予想関数
 def predict(theta, X):
     probability = sigmoid(X * theta.T)
-    return [1 if x >= 0.5 else 0 for x in probability], probability
+    return [1 if x >= 0.5 else 0 for x in probability]
 
 # 精度の算出
 def accuracy(predictions, y):
@@ -114,7 +120,7 @@ def accuracy(predictions, y):
 theta_min = np.matrix(result[0])
 predictions = predict(theta_min, X)
 acc = accuracy(predictions, y)
-print('accuracy: {0}%'.format(acc))
+print('accuracy: {0}%'.format(acc)) #=> accuracy: 89%
 
 
 # Descision bounddaryを引く
@@ -122,10 +128,3 @@ print('accuracy: {0}%'.format(acc))
 x1 = np.linspace(X[:, 1].min(), X[:, 1].max(), 100)
 x2 = (-theta_min[0, 0] - theta_min[0, 1] * x1 ) / theta_min[0, 2]
 ax.plot(x1, x2, c='g')
-
-# 新しいデータで検証
-X_new = np.array([1, 59, 66])
-prediction, probability = predict(theta_min, X_new)
-
-X_new2 = np.array([1, 40, 30])
-prediction2, probability2 = predict(theta_min, X_new2)
