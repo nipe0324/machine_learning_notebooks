@@ -45,6 +45,7 @@ https://www.coursera.org/learn/machine-learning/home/week/3
 * オーバーフィッティング（過学習）をしないようにするための手法
 * オーバーフィッティングとは、トレーニング時にトレーニングセットにだけフィットしすぎるモデルが作成されてしまい、実運用で精度がでなくなってしまう問題。高次の関数を適用するとオーバーフィッティングになりやすい。でも、データ量を増やせばオーバーフィッティングは徐々に解消される。
 
+
 # 異常検知（Anomaly Detection）
 
 https://www.coursera.org/learn/machine-learning/home/week/9
@@ -60,3 +61,13 @@ https://www.coursera.org/learn/machine-learning/home/week/9
 2. パラメータμ、σをフィットさせる
 3. 新しいサンプルxを与え、p(x)を計算する
 4. p(x) < ε ければ、異常と判断する
+
+## 精度を上げるには
+
+* 異常を検知できる特徴を探す
+* εの選び方
+
+
+# 商品推薦（Recommendation）
+
+https://www.coursera.org/learn/machine-learning/home/week/9
