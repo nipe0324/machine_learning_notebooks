@@ -56,6 +56,8 @@ def select_threshold(pval, yval):
     """最適な閾値εを探す。F1スコアを使って検証する"""
     best_epsilon = 0
     best_f1 = 0
+    best_precision = 0
+    best_recall = 0
     f1 = 0
     step = (pval.max() - pval.min()) / 1000
     for epsilon in np.arange(pval.min(), pval.max(), step):
@@ -70,10 +72,34 @@ def select_threshold(pval, yval):
         if f1 > best_f1:
             best_f1 = f1
             best_epsilon = epsilon
-    return best_epsilon, best_f1
+            best_precision = precision
+            best_recall = recall
+    return best_epsilon, best_f1, best_precision, best_recall
 
-epsilon, f1 = select_threshold(pval, yval)
-epsilon, f1 # (0.0095667060059568421, 0.7142857142857143)
+def plot_precision_and_recall(pval, yval):
+    best_epsilon = 0
+    best_f1 = 0
+    fig, ax = plt.subplots(figsize=(12,8))
+    ax.set_xlabel('Precision')
+    ax.set_ylabel('Recall')
+    ax.set_title('Precision and Recall')
+    step = (pval.max() - pval.min()) / 1000
+    for epsilon in np.arange(pval.min(), pval.max(), step):
+        preds = pval < epsilon
+        tp = np.sum(np.logical_and(preds == 1, yval == 1)).astype(float)
+        fp = np.sum(np.logical_and(preds == 1, yval == 0)).astype(float)
+        fn = np.sum(np.logical_and(preds == 0, yval == 1)).astype(float)
+        precision = tp / (tp + fp)
+        recall = tp / (tp + fn)
+        f1 = (2 * precision * recall) / (precision + recall)
+        ax.scatter(precision, recall)
+
+
+plot_precision_and_recall(pval, yval)
+
+epsilon, f1, best_precision, best_recall = select_threshold(pval, yval)
+epsilon, f1, best_precision, best_recall
+# (0.0095667060059568421, 0.7142857142857143, 1.0, 0.55555555555555558)
 
 # εを適用する
 outliers = np.where(p < epsilon)
