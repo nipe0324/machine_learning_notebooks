@@ -1,5 +1,7 @@
 # 線形回帰 (Liner Regression)
 
+特徴Xに近似する関数を作成し、その関数により値を予測する
+
 ## 重要な概念
 
 * データセット (x, y):
@@ -25,10 +27,15 @@
   * TODO: どういうロジックでPolynomial featuresを導入する？
 * 外れ値に大きく影響を受けるらしい。トレーニングデータを多くして対応。たぶん。
 
+## 参考
+
+* [Coursera week 1](https://www.coursera.org/learn/machine-learning/home/week/1)
+* [Coursera week 2](https://www.coursera.org/learn/machine-learning/home/week/2)
+
 
 # ロジスティック回帰（Logistic Regression）
 
-* Coursera: https://www.coursera.org/learn/machine-learning/home/week/3
+特徴Xを区別する関数を作成し、その関数により0/1を判断する。
 
 ## 重要な概念
 
@@ -37,18 +44,23 @@
 * コストファンクション
 * GradientDescent
 
+## 参考
+
+* [Coursera week 3](https://www.coursera.org/learn/machine-learning/home/week/3)
 
 # Regularization（正規化）
 
-https://www.coursera.org/learn/machine-learning/home/week/3
-
 * オーバーフィッティング（過学習）をしないようにするための手法
 * オーバーフィッティングとは、トレーニング時にトレーニングセットにだけフィットしすぎるモデルが作成されてしまい、実運用で精度がでなくなってしまう問題。高次の関数を適用するとオーバーフィッティングになりやすい。でも、データ量を増やせばオーバーフィッティングは徐々に解消される。
+* 正規化の重みλを大きくするほどオーバーフィッティングしずらくなる。
 
+## 参考
+
+* [Coursera week 3](https://www.coursera.org/learn/machine-learning/home/week/3)
 
 # 異常検知（Anomaly Detection）
 
-https://www.coursera.org/learn/machine-learning/home/week/9
+特徴Xに対して、ガウス分布を計算し、確率が閾値εより低い場合に異常と判断する
 
 ## 重要な概念
 
@@ -60,13 +72,16 @@ https://www.coursera.org/learn/machine-learning/home/week/9
 1. 異常を検知できる特徴xiを選ぶ
 2. パラメータμ、σをフィットさせる
 3. 新しいサンプルxを与え、p(x)を計算する
-4. p(x) < ε ければ、異常と判断する
+4. p(x) < ε の場合、異常と判断する
 
 ## 精度を上げるには
 
-* 異常を検知できる特徴を探す
-* εの選び方
+* 異常を検知できる特徴を探す（正規分布している特徴か？）
+* εの選び方（正解ラベルをPrecision、Recall、F1スコアを計算し、εを機械的に選ぶこともできる）
 
+## 参考
+
+* [Coursera week 9](https://www.coursera.org/learn/machine-learning/home/week/9)
 
 # 商品推薦（Recommendation）
 
