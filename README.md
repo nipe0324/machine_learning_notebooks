@@ -90,7 +90,7 @@
 https://www.coursera.org/learn/machine-learning/home/week/9
 
 
-## RNN
+# RNN
 
 * RNN(Recurrent Neural Network: 再帰型リカレントニューラルネットワーク)は、ディープラーニングの主要アルゴリズムのひとつ。時間軸をとり、前回の出力を入力とすることで、多層ニューラルネットワークとするモデル。
 * LSTM(Long Short Term Memory)は、RNNにゲートという機構を設けることで長距離依存問題を対応したもの。
@@ -103,3 +103,11 @@ https://www.coursera.org/learn/machine-learning/home/week/9
 
 * forget bias は経験でいじる。1.0はゲートがかなりあいている。
 * activationを変えてみる。logistic, tanh, Reluなど
+
+
+# Tensorflow
+
+
+## 基本
+
+* 最初にGraphを作成し、Session内でGraphを起動させる
