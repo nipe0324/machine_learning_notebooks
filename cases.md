@@ -4,7 +4,18 @@
 
 ### Deep Learning
 
-* 冷却システムの効率化(他のモデルかも) http://gigazine.net/news/20160721-deepmind-reduce-google-data-center-energy/
+* 画像分類
+* 音声認識
+
+実用例
+
+* Googleの画像検索
+* Google翻訳
+* [Google冷却システムの効率化](http://gigazine.net/news/20160721-deepmind-reduce-google-data-center-energy/)
+* 画像中のテキストを自動認識して20か国語にリアルタイムに翻訳するスマートフォンアプリ
+* Facebookの画像タグ付け機能であるDeepFace
+* 中国語での音声クエリに対応できるBaiduのDeepSpeech
+* 最近では製薬業界が新薬の発見や毒性の予測にディープラーニングの手法を取り入れ始めているらしい
 
 ### CNN
 
