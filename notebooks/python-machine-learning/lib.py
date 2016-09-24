@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from sklearn.cross_validation import train_test_split
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from sklearn import datasets
@@ -13,8 +14,6 @@ def load_iris_data():
     # 正解ラベルを取得
     y = iris.target
 
-    # データセットの分割
-    from sklearn.cross_validation import train_test_split
     # トレーニングデータとテストデータに分割
     # 70%をトレーニングセット、30%をテストセットとしてランダムに分割
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
@@ -38,7 +37,12 @@ def load_wine_data():
     df_wine.columns = ['Class label', 'Alcohol', 'Malic acid', 'Ash', 'Alcalinity of ash',
                        'Magnesium', 'Total phenols', 'Flavanoids', 'Nonflavanoid phenols',
                        'Proanthocyanins', 'Color intensity', 'Hue', 'OD280/OD315 of diluted wines', 'Proline']
-    return df_wine
+    
+    # DataFrameからX, yを取得
+    X, y = df_wine.iloc[:, 1:].values, df_wine.iloc[:, 0].values
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+    
+    return X_train, X_test, y_train, y_test
 
 
 def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
