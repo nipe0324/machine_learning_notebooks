@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from sklearn import datasets
@@ -29,6 +30,15 @@ def load_iris_data():
 
     return X_train, X_test, X_train_std, X_test_std, y_train, y_test
 
+
+def load_wine_data():
+    """Wineデータをロードする"""
+    df_wine = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data',
+                          header=None)
+    df_wine.columns = ['Class label', 'Alcohol', 'Malic acid', 'Ash', 'Alcalinity of ash',
+                       'Magnesium', 'Total phenols', 'Flavanoids', 'Nonflavanoid phenols',
+                       'Proanthocyanins', 'Color intensity', 'Hue', 'OD280/OD315 of diluted wines', 'Proline']
+    return df_wine
 
 
 def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
