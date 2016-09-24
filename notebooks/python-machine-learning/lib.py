@@ -27,7 +27,7 @@ def load_iris_data():
     X_train_std = sc.transform(X_train)
     X_test_std = sc.transform(X_test)
 
-    return X_train_std, X_test_std, y_train, y_test
+    return X_train, X_test, X_train_std, X_test_std, y_train, y_test
 
 
 
