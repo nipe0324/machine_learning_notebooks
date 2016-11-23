@@ -1,6 +1,11 @@
 # coursera
 coursera/machine-learning-coursera/
 
+# Downloaded training data
+text8.zip
+notMNIST.pickle
+notMNIST_large*
+notMNIST_small*
 
 # TensorFlow
 tensor_flow/log
