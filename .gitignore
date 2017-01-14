@@ -10,5 +10,11 @@ notMNIST_small*
 # TensorFlow
 tensor_flow/log
 
+*/.ipynb_checkpoints/*
+
 # Others
 .DS_Store
+
+# ipython notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
