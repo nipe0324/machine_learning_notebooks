@@ -115,10 +115,12 @@ def train():
             # generatorを更新
             noise = np.array([np.random.uniform(-1, 1, 100) for _ in range(BATCH_SIZE)])
             g_loss = dcgan.train_on_batch(noise, [1]*BATCH_SIZE)
-            print("epoch: %d, batch: %d, g_loss: %f, d_loss: %f" % (epoch, index, g_loss, d_loss))
+            if index % 100 == 0:
+                print("epoch: %d, batch: %d, g_loss: %f, d_loss: %f" % (epoch, index, g_loss, d_loss))
 
         generator.save_weights('generator_cifar10.h5')
         discriminator.save_weights('discriminator_cifar10.h5')
 
 
 train()
+
